@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // סגירה אוטומטית של המגירה בלחיצה על קישור
   document.querySelectorAll(".navbar-collapse .nav-link").forEach(link => {
-      link.addEventListener("click", () => {
-          if (navbarCollapse.classList.contains("show")) {
-              navbarToggler.click(); // מחקה לחיצה כדי לסגור את המגירה
-          }
-      });
+    link.addEventListener("click", () => {
+      if (navbarCollapse.classList.contains("show")) {
+        navbarToggler.click(); // מחקה לחיצה כדי לסגור את המגירה
+      }
+    });
   });
 });
 // MENU MOBILE
@@ -172,34 +172,53 @@ const minDate = `${yyyy}-${mm}-${dd}`;
 // הגדרת המאפיין 'min' לשדה התאריך
 document.getElementById('date').setAttribute('min', minDate);
 
- document.addEventListener("DOMContentLoaded", function () {
-        var navbar = document.querySelector(".navbar");
-        var body = document.querySelector("body");
+document.addEventListener("DOMContentLoaded", function () {
+  var navbar = document.querySelector(".navbar");
+  var body = document.querySelector("body");
 
-        window.addEventListener("scroll", function () {
-          if (window.scrollY > 50) {
-            navbar.classList.add("fixed", "shrink"); // Fix the navbar and shrink it
-            body.style.paddingTop = navbar.offsetHeight + "px"; // Prevent content shift
-          } else {
-            navbar.classList.remove("fixed", "shrink"); // Remove fixed position at the top
-            body.style.paddingTop = "0px"; // Reset padding
-          }
-        });
-      });
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      navbar.classList.add("fixed", "shrink"); // Fix the navbar and shrink it
+      body.style.paddingTop = navbar.offsetHeight + "px"; // Prevent content shift
+    } else {
+      navbar.classList.remove("fixed", "shrink"); // Remove fixed position at the top
+      body.style.paddingTop = "0px"; // Reset padding
+    }
+  });
+});
 
-      document.addEventListener("DOMContentLoaded", function () {
-        var navbar = document.querySelector(".navbar");
-        var body = document.querySelector("body");
+document.addEventListener("DOMContentLoaded", function () {
+  var navbar = document.querySelector(".navbar");
+  var body = document.querySelector("body");
 
-        window.addEventListener("scroll", function () {
-          if (window.scrollY > 50) {
-            navbar.classList.add("fixed", "shrink"); // Fix the navbar and shrink it
-            body.style.paddingTop = navbar.offsetHeight + "px"; // Prevent content shift
-          } else {
-            navbar.classList.remove("fixed", "shrink"); // Remove fixed position at the top
-            body.style.paddingTop = "0px"; // Reset padding
-          }
-        });
-      });
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      navbar.classList.add("fixed", "shrink"); // Fix the navbar and shrink it
+      body.style.paddingTop = navbar.offsetHeight + "px"; // Prevent content shift
+    } else {
+      navbar.classList.remove("fixed", "shrink"); // Remove fixed position at the top
+      body.style.paddingTop = "0px"; // Reset padding
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const reveals = document.querySelectorAll('.reveal');
+
+  function handleReveal() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleReveal);
+  handleReveal(); // להריץ פעם אחת בהתחלה
+});
+
 
 
