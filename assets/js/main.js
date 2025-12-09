@@ -1,74 +1,17 @@
-// NAV BAR
-
-document.getElementById("form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent the default form submission
-  document.getElementById("message").textContent = "Un Instant";
-  document.getElementById("message").style.display = "block";
-  document.getElementById("submit-button").disabled = true;
-
-  // Collect the form data
-  var formData = new FormData(this);
-  var keyValuePairs = [];
-  for (var pair of formData.entries()) {
-    keyValuePairs.push(pair[0] + "=" + pair[1]);
-  }
-
-  var formDataString = keyValuePairs.join("&");
-
-  // Send a POST request to your Google Apps Script
-  fetch(
-    "https://script.google.com/macros/s/AKfycbzmYxsp6xCkrnKxtlfXF79Lbyc41fEkCiCXh6nKa-xbF1FFu303oAyvfE3Kd0LODqQ/exec",
-    {
-      redirect: "follow",
-      method: "POST",
-      body: formDataString,
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-    }
-  )
-    .then(function (response) {
-      // Check if the request was successful
-      if (response) {
-        return response; // Assuming your script returns JSON response
-      } else {
-        throw new Error("Failed to submit the form.");
-      }
-    })
-    .then(function (data) {
-      // Display a success message
-      document.getElementById("message").textContent =
-        "Merci, Nous vous contacterons";
-      document.getElementById("message").style.display = "block";
-      document.getElementById("message").style.backgroundColor = "blue";
-      document.getElementById("message").style.color = "beige";
-      document.getElementById("submit-button").disabled = false;
-      document.getElementById("form").reset();
-
-      setTimeout(function () {
-        document.getElementById("message").textContent = "";
-        document.getElementById("message").style.display = "none";
-      }, 2600);
-    })
-    .catch(function (error) {
-      // Handle errors, you can display an error message here
-      console.error(error);
-      document.getElementById("message").textContent =
-        "Un Instant";
-      document.getElementById("message").style.display = "block";
-    });
-});
 document.addEventListener("DOMContentLoaded", function () {
-  const navbarHeight = document.querySelector(".navbar").offsetHeight;
+  /* =========================
+     NAVBAR – SCROLL TO SECTION
+  ========================== */
+  const navbarEl = document.querySelector(".navbar");
+  const navbarHeight = navbarEl ? navbarEl.offsetHeight : 0;
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-
       const targetId = this.getAttribute("href").slice(1);
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
+        e.preventDefault();
         const offsetTop = targetElement.offsetTop - navbarHeight;
         window.scrollTo({
           top: offsetTop,
@@ -77,133 +20,134 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+  /* =========================
+     NAVBAR – CLOSE MOBILE (BOOTSTRAP)
+  ========================== */
   const navbarToggler = document.querySelector(".navbar-toggler");
   const navbarCollapse = document.querySelector(".navbar-collapse");
 
-  // סגירה אוטומטית של המגירה בלחיצה על קישור
-  document.querySelectorAll(".navbar-collapse .nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-      if (navbarCollapse.classList.contains("show")) {
-        navbarToggler.click(); // מחקה לחיצה כדי לסגור את המגירה
-      }
+  if (navbarToggler && navbarCollapse) {
+    document.querySelectorAll(".navbar-collapse .nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        if (navbarCollapse.classList.contains("show")) {
+          navbarToggler.click(); // לסגור את התפריט
+        }
+      });
     });
-  });
-});
-// MENU MOBILE
-
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.menu-btn');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const closeBtn = document.querySelector('.close-btn');
-  const mobileMenuClick = document.querySelector('.mobile-menu ul');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.style.display = 'block';
-    mobileMenu.style.animation = 'showMenu 1s forwards';
-  });
-
-  closeBtn.addEventListener('click', () => {
-    mobileMenu.style.animation = 'hideMenu 1s forwards';
-  });
-
-  mobileMenuClick.addEventListener('click', () => {
-    mobileMenu.style.animation = 'hideMenu 1s forwards';
-  });
-});
-
-document.getElementById("form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent the default form submission
-  document.getElementById("message").textContent = "Submitting..";
-  document.getElementById("message").style.display = "block";
-  document.getElementById("submit-button").disabled = true;
-
-  // Collect the form data
-  var formData = new FormData(this);
-  var keyValuePairs = [];
-  for (var pair of formData.entries()) {
-    keyValuePairs.push(pair[0] + "=" + pair[1]);
   }
 
-  var formDataString = keyValuePairs.join("&");
+  /* =========================
+     CUSTOM MOBILE MENU (menu-btn)
+  ========================== */
+  const menuBtn = document.querySelector(".menu-btn");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const closeBtn = document.querySelector(".close-btn");
+  const mobileMenuClick = document.querySelector(".mobile-menu ul");
 
-  // Send a POST request to your Google Apps Script
-  fetch(
-    "https://script.google.com/macros/s/AKfycbx3rFFhOJpjMHz5pweuAMXRbt5hcuFm4iz9MmGc3ZyOZaOcCSd9iTRffoWSj5e0CT8Q/exec",
-    {
-      redirect: "follow",
-      method: "POST",
-      body: formDataString,
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-    }
-  )
-    .then(function (response) {
-      // Check if the request was successful
-      if (response) {
-        return response; // Assuming your script returns JSON response
-      } else {
-        throw new Error("Failed to submit the form.");
-      }
-    })
-    .then(function (data) {
-      window.location.href = "/merci.html";
-    })
-    .catch(function (error) {
-      // Handle errors, you can display an error message here
-      console.error(error);
-      document.getElementById("message").textContent =
-        "An error occurred while submitting the form.";
-      document.getElementById("message").style.display = "block";
+  if (menuBtn && mobileMenu && closeBtn && mobileMenuClick) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.style.display = "block";
+      mobileMenu.style.animation = "showMenu 1s forwards";
     });
-});
-// קבלת התאריך של היום
-const today = new Date();
-const yyyy = today.getFullYear();
-const mm = String(today.getMonth() + 1).padStart(2, '0'); // חודשים הם מ-0 ל-11
-const dd = String(today.getDate()).padStart(2, '0');
 
-// פורמט תאריך yyyy-mm-dd
-const minDate = `${yyyy}-${mm}-${dd}`;
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.style.animation = "hideMenu 1s forwards";
+    });
 
-// הגדרת המאפיין 'min' לשדה התאריך
-document.getElementById('date').setAttribute('min', minDate);
+    mobileMenuClick.addEventListener("click", () => {
+      mobileMenu.style.animation = "hideMenu 1s forwards";
+    });
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
-  var navbar = document.querySelector(".navbar");
-  var body = document.querySelector("body");
+  /* =========================
+     FORM – SEND TO APPS SCRIPT
+  ========================== */
+  const form = document.getElementById("form");
+  const messageBox = document.getElementById("message");
+  const submitBtn = document.getElementById("submit-button");
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 50) {
-      navbar.classList.add("fixed", "shrink"); // Fix the navbar and shrink it
-      body.style.paddingTop = navbar.offsetHeight + "px"; // Prevent content shift
-    } else {
-      navbar.classList.remove("fixed", "shrink"); // Remove fixed position at the top
-      body.style.paddingTop = "0px"; // Reset padding
-    }
-  });
-});
+  // הכנס כאן את ה־URL הנכון של ה־Google Apps Script שלך
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx3rFFhOJpjMHz5pweuAMXRbt5hcuFm4iz9MmGc3ZyOZaOcCSd9iTRffoWSj5e0CT8Q/exec";
 
-document.addEventListener("DOMContentLoaded", function () {
-  var navbar = document.querySelector(".navbar");
-  var body = document.querySelector("body");
+  if (form && messageBox && submitBtn) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // למנוע שליחה רגילה
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 50) {
-      navbar.classList.add("fixed", "shrink"); // Fix the navbar and shrink it
-      body.style.paddingTop = navbar.offsetHeight + "px"; // Prevent content shift
-    } else {
-      navbar.classList.remove("fixed", "shrink"); // Remove fixed position at the top
-      body.style.paddingTop = "0px"; // Reset padding
-    }
-  });
-});
+      messageBox.textContent = "Submitting...";
+      messageBox.style.display = "block";
+      submitBtn.disabled = true;
 
-document.addEventListener('DOMContentLoaded', function () {
-  const reveals = document.querySelectorAll('.reveal');
+      const formData = new FormData(form);
+      const keyValuePairs = [];
+      for (const pair of formData.entries()) {
+        keyValuePairs.push(pair[0] + "=" + pair[1]);
+      }
+      const formDataString = keyValuePairs.join("&");
+
+      fetch(SCRIPT_URL, {
+        redirect: "follow",
+        method: "POST",
+        body: formDataString,
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Failed to submit the form.");
+          }
+          return response; // לא משתמשים ב-data בפועל, אז זה בסדר
+        })
+        .then(function () {
+          // מעבר לדף תודה
+          window.location.href = "/merci.html";
+        })
+        .catch(function (error) {
+          console.error(error);
+          messageBox.textContent =
+            "An error occurred while submitting the form.";
+          messageBox.style.display = "block";
+          submitBtn.disabled = false;
+        });
+    });
+  }
+
+  /* =========================
+     DATE – MIN = TODAY
+  ========================== */
+  const dateInput = document.getElementById("date");
+  if (dateInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); // חודשים 0–11
+    const dd = String(today.getDate()).padStart(2, "0");
+
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    dateInput.setAttribute("min", minDate);
+  }
+
+  /* =========================
+     NAVBAR – FIXED ON SCROLL
+  ========================== */
+  const body = document.querySelector("body");
+
+  if (navbarEl && body) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        navbarEl.classList.add("fixed", "shrink");
+        body.style.paddingTop = navbarEl.offsetHeight + "px"; // למנוע קפיצה של התוכן
+      } else {
+        navbarEl.classList.remove("fixed", "shrink");
+        body.style.paddingTop = "0px";
+      }
+    });
+  }
+
+  /* =========================
+     REVEAL ANIMATION
+  ========================== */
+  const reveals = document.querySelectorAll(".reveal");
 
   function handleReveal() {
     const triggerBottom = window.innerHeight * 0.85;
@@ -211,14 +155,11 @@ document.addEventListener('DOMContentLoaded', function () {
     reveals.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top < triggerBottom) {
-        el.classList.add('visible');
+        el.classList.add("visible");
       }
     });
   }
 
-  window.addEventListener('scroll', handleReveal);
-  handleReveal(); // להריץ פעם אחת בהתחלה
+  window.addEventListener("scroll", handleReveal);
+  handleReveal(); // פעם אחת בהתחלה
 });
-
-
-
