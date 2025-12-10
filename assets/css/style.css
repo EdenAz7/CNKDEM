@@ -881,22 +881,24 @@ h1,h3 {
 
 }
 
-/* Checkbox consent – ligne compacte */
+/* Checkbox consent – ligne compacte et propre */
 .form-group.consent-group {
-  display: flex;
+  display: grid !important;
+  grid-template-columns: auto 1fr;
   align-items: flex-start;
-  gap: 8px;
+  column-gap: 8px;
   margin-bottom: 10px;
 }
 
 .form-group.consent-group input[type="checkbox"] {
-  width: auto;              /* לבטל את ה-100% הקודם */
-  margin: 3px 0 0 0;        /* יישור קטן למרכז הטקסט */
+  width: auto !important;      /* לבטל 100% רוחב */
+  margin: 3px 0 0 0 !important;
 }
 
 .form-group.consent-group label {
-  display: inline;          /* שלא יהיה בלוק ענק */
-  margin: 0;
-  font-size: 0.82rem;       /* קטן יותר, לא תופס הרבה מקום */
+  display: block !important;
+  margin: 0 !important;
+  text-align: left !important;
+  font-size: 0.8rem;
   line-height: 1.3;
 }
