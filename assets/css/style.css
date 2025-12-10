@@ -880,3 +880,23 @@ h1,h3 {
   padding: 10px;
 
 }
+
+/* Checkbox consent – ligne compacte */
+.form-group.consent-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.form-group.consent-group input[type="checkbox"] {
+  width: auto;              /* לבטל את ה-100% הקודם */
+  margin: 3px 0 0 0;        /* יישור קטן למרכז הטקסט */
+}
+
+.form-group.consent-group label {
+  display: inline;          /* שלא יהיה בלוק ענק */
+  margin: 0;
+  font-size: 0.82rem;       /* קטן יותר, לא תופס הרבה מקום */
+  line-height: 1.3;
+}
