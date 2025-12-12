@@ -2,12 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 
 
- 
+
 :root {
-  --blue-color: #2563eb;          /* כחול מודרני */
-  --blue-color2: #0f172a;         /* כחול כהה/נייבי */
-  --blue-color-dark: #1d4ed8;     /* כחול לחיצה / כפתור */
-  --accent-color: #f97316;        /* כתום עדין – לאיקונים/היילייט */
+  --blue-color: #2563eb;
+  /* כחול מודרני */
+  --blue-color2: #0f172a;
+  /* כחול כהה/נייבי */
+  --blue-color-dark: #1d4ed8;
+  /* כחול לחיצה / כפתור */
+  --accent-color: #f97316;
+  /* כתום עדין – לאיקונים/היילייט */
   --dark-color: #111827;
   --black-color: #020617;
   --black-color-light: #0b1120;
@@ -55,12 +59,15 @@ a {
   border-radius: 2px;
 }
 
-h1 , h2  , h3, h4{
+h1,
+h2,
+h3,
+h4 {
   font-weight: 600;
 }
 
 /* Default Navbar Styling (Normal Mode) */
-.nav-btn-p{
+.nav-btn-p {
   margin: 1rem 1rem
 }
 
@@ -88,6 +95,7 @@ h1 , h2  , h3, h4{
   object-fit: cover;
 
 }
+
 .navbar img:hover {
   transform: scale(1.04);
   transition: transform 0.3s ease;
@@ -119,9 +127,11 @@ h1 , h2  , h3, h4{
 .navbar.shrink {
   padding: 5px 0;
 }
+
 /* Prevent Content Overlap */
 body {
-  padding-top: 0px; /* Default, changed dynamically */
+  padding-top: 0px;
+  /* Default, changed dynamically */
 }
 
 .reveal {
@@ -168,7 +178,8 @@ body {
   justify-content: center;
   padding: 8px 15px;
   border-radius: 8px;
-  background-color: #007bff; /* Blue background */
+  background-color: #007bff;
+  /* Blue background */
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -185,18 +196,20 @@ body {
 }
 
 .phone-number:hover {
-  background-color: #09004d; /* Darker blue on hover */
+  background-color: #09004d;
+  /* Darker blue on hover */
 }
 
 /* Centering in mobile mode */
 @media (max-width: 768px) {
   .search-container {
-      text-align: center;
-      width: 100%;
+    text-align: center;
+    width: 100%;
   }
 
   .phone-number {
-      display: inline-flex; /* Makes background fit content */
+    display: inline-flex;
+    /* Makes background fit content */
   }
 }
 
@@ -242,7 +255,8 @@ span {
 }
 
 .hero-button {
-  display: block; /* מאפשר מרכוז אופקי עם margin */
+  display: block;
+  /* מאפשר מרכוז אופקי עם margin */
   margin: 1rem auto;
   padding: 1rem;
   border-radius: 7rem;
@@ -292,13 +306,13 @@ h1 {
 }
 
 
-.phone-input:invalid:focus + .error-message {
+.phone-input:invalid:focus+.error-message {
   display: block;
 }
 
 
 
-.email-input:invalid:focus + .error-message {
+.email-input:invalid:focus+.error-message {
   display: block;
 }
 
@@ -419,10 +433,14 @@ button:hover {
 .bgImg {
   min-height: 300px;
   background-color: rgba(0, 89, 255, 0.168);
-  display: grid; /* הפעלת Flexbox */
-  justify-content: center; /* מרכז תוכן אופקית */
-  align-items: center; /* מרכז תוכן אנכית */
-  text-align: center; /* במידה ויש טקסט */
+  display: grid;
+  /* הפעלת Flexbox */
+  justify-content: center;
+  /* מרכז תוכן אופקית */
+  align-items: center;
+  /* מרכז תוכן אנכית */
+  text-align: center;
+  /* במידה ויש טקסט */
 }
 
 .hero-button:hover {
@@ -825,7 +843,7 @@ footer {
   -webkit-background-clip: text;
 }
 
-#services > p {
+#services>p {
   max-width: 800px;
   margin-bottom: 2rem;
 }
@@ -879,16 +897,20 @@ footer {
 }
 
 
-h1,h3 {
+h1,
+h3 {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .team-container {
   margin-top: 50px;
 }
+
 .team-member {
   margin-bottom: 30px;
 }
+
 .card {
   border-radius: 10px;
   transition: 0.3s;
@@ -898,11 +920,13 @@ h1,h3 {
   font-size: 1.2em;
   font-weight: bold;
 }
+
 .contact-info {
   color: #555;
 }
-#equipe{
-  background-color: rgb(0, 123, 255,0.6);
+
+#equipe {
+  background-color: rgb(0, 123, 255, 0.6);
   padding: 10px;
 
 }
@@ -915,6 +939,7 @@ h1,h3 {
   column-gap: 8px;
   margin-bottom: 10px;
 }
+
 .rgpd-info {
   display: flex;
   align-items: flex-start;
@@ -931,7 +956,8 @@ h1,h3 {
 
 
 .form-group.consent-group input[type="checkbox"] {
-  width: auto !important;      /* לבטל 100% רוחב */
+  width: auto !important;
+  /* לבטל 100% רוחב */
   margin: 3px 0 0 0 !important;
 }
 
