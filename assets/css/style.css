@@ -291,6 +291,32 @@ h1 {
   border: 1px solid #e5e7eb;
 }
 
+
+.phone-input:invalid:focus + .error-message {
+  display: block;
+}
+
+
+
+.email-input:invalid:focus + .error-message {
+  display: block;
+}
+
+
+
+
+.error-message {
+  display: none;
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+
+
+
+
+
 .form-container h1.section-heading {
   font-size: 1.8rem;
   margin-bottom: 20px;
