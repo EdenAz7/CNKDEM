@@ -73,7 +73,7 @@ h4 {
 
 .navbar {
   width: 100%;
-  background: rgba(255, 255, 255, 0.98);
+  background: #0f2851;
   backdrop-filter: blur(8px);
   transition: all 0.3s ease-in-out;
   padding: 10px 20px;
@@ -111,15 +111,15 @@ h4 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #111827 !important;
+  color: #ffffff !important;
   padding: 6px 14px;
   border-radius: 999px;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  background-color: rgba(11, 126, 214, 0.08);
-  color: #0b7ed6 !important;
+  background-color: rgba(0, 0, 0, 0.603);
+  color: #ffffff !important;
 }
 
 
@@ -178,7 +178,7 @@ body {
   justify-content: center;
   padding: 8px 15px;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: #0f2851;
   /* Blue background */
   color: white;
   font-size: 18px;
@@ -228,7 +228,7 @@ body {
 }
 
 .header-nav ul a {
-  color: blue;
+  color: #0f2851;
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: var(--dark-shadow);
@@ -236,7 +236,7 @@ body {
 }
 
 .header-nav ul a:hover {
-  color: rgb(0, 136, 255);
+  color: #0f2851(0, 136, 255);
 }
 
 
@@ -286,7 +286,7 @@ h1 {
 }
 
 #contact {
-  background: radial-gradient(circle at top left, #e0edff, #f9fafb);
+  background: radial-gradient(circle at top left, #e0edff, #71ace6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,7 +309,6 @@ h1 {
 .phone-input:invalid:focus+.error-message {
   display: block;
 }
-
 
 
 .email-input:invalid:focus+.error-message {
@@ -434,13 +433,9 @@ button:hover {
   min-height: 300px;
   background-color: rgba(0, 89, 255, 0.168);
   display: grid;
-  /* הפעלת Flexbox */
   justify-content: center;
-  /* מרכז תוכן אופקית */
   align-items: center;
-  /* מרכז תוכן אנכית */
   text-align: center;
-  /* במידה ויש טקסט */
 }
 
 .hero-button:hover {
@@ -625,13 +620,6 @@ button:hover {
 
 
 
-
-
-
-
-
-
-
 .selected:hover {
   fill: var(--blue-color-dark);
   stroke: var(--blue-color);
@@ -706,7 +694,7 @@ button:hover {
   margin: 0 auto;
   gap: 3rem;
   width: 100%;
-  background: linear-gradient(135deg, #0f2851, #020617);
+  background: #0f2851;
   color: #f9fafb;
 }
 
@@ -767,7 +755,7 @@ button:hover {
 footer {
   color: white;
   background: var(--black-color-light);
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
   font-size: 1rem;
 }
 
@@ -800,10 +788,10 @@ footer {
 
 
 .bottom-bar {
-  background: var(--blue-color-dark);
+  background: #0f2851;
   text-align: center;
   padding: 10px 0;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   font-weight: bold;
 }
 
