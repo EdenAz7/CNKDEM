@@ -557,6 +557,7 @@ button:hover {
 }
 
 #about-us {
+  background: radial-gradient(circle at top left, #e0edff, #71ace6);
   margin: 5rem auto;
   display: flex;
   justify-content: center;
