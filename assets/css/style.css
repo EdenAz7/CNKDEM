@@ -558,19 +558,20 @@ button:hover {
 
 #about-us {
   background: radial-gradient(circle at top left, #e0edff, #71ace6);
-  margin: 5rem auto;
+  margin: 5rem auto 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5rem;
   max-width: 100%;
-  padding: 0 3rem;
+  padding: 2rem 3rem;
 }
 
 #about-us img {
   max-height: 40rem;
   max-width: 100%;
   border-radius: 1rem;
+  margin: 1rem auto;
 }
 
 .about-content {
